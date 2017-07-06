@@ -1,0 +1,32 @@
+{
+  "name": "lets-evolv",
+  "version": "1.0.0",
+  "description": "A playground for evolving AIs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Dallas62/lets-evolv.git"
+  },
+  "keywords": [
+    "evolv",
+    "ai",
+    "genetic",
+    "algorithm",
+    "neural",
+    "network"
+  ],
+  "author": "Tacyniak Boris <boris.tacyniak@free.fr> (https://www.tacyniak.fr/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dallas62/lets-evolv/issues"
+  },
+  "homepage": "https://github.com/Dallas62/lets-evolv#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
+    "nodeunit": "^0.11.1"
+  }
+}
