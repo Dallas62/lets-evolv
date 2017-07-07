@@ -12,7 +12,7 @@ class Perceptron {
             throw new Error('Too few inputs define for the Perceptron.');
         }
 
-        if ('function' === typeof this._activation) {
+        if ('function' !== typeof this._activation) {
             throw new Error('This is not an activation function for the Perceptron.');
         }
 

@@ -1,15 +1,31 @@
 'use strict';
 
-var testCase  = require('nodeunit').testCase;
+let testCase  = require('nodeunit').testCase;
 
-var Perceptron = require("../src/Perceptron");
+let Perceptron = require("../src/Perceptron");
+let Activation = require("../src/Activation");
 
 module.exports = testCase({
-    'Test 1 - Instantiation': function (test) {
+    'Perceptron - Instantiation': function (test) {
         // Instantiation
-        var perceptron = new Perceptron(2);
+        let perceptron = new Perceptron(2, Activation.signum);
 
         test.equal(2, perceptron.inputs);
+        test.done();
+    },
+    'Perceptron - Instantiation wrong parameter activation': function (test) {
+        // Instantiation
+        test.throws(function() {
+            new Perceptron(2, null);
+        });
+
+        test.done();
+    },
+    'Perceptron - Instantiation wrong parameter inputs': function (test) {
+        // Instantiation
+        test.throws(function() {
+            new Perceptron(0, Activation.signum);
+        });
         test.done();
     }
 });
