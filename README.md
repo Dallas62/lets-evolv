@@ -1,4 +1,4 @@
-# lets-evolv
+# lets-evolv [![Build Status](https://travis-ci.org/Dallas62/lets-evolv.svg?branch=master)](https://travis-ci.org/Dallas62/lets-evolv)
 
 *Lets-Evolv* is a small project that implements *Neural Network* concept and *Genetic Algorithm*.
 
