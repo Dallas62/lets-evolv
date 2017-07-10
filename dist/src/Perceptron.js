@@ -14,6 +14,7 @@ var Perceptron = function () {
 
         this._nbInputs = nbInputs;
         this._activation = activation;
+        this._bias = 1;
 
         if (this._nbInputs < 1) {
             throw new Error('Too few inputs define for the Perceptron.');
@@ -26,7 +27,7 @@ var Perceptron = function () {
         this._weights = [];
 
         // Generate default weights
-        for (var i = 0; i < this._weights.length; i++) {
+        for (var i = 0; i < this._nbInputs; i++) {
             this._weights[i] = Math.random() * 2 - 1;
         }
     }
@@ -38,9 +39,9 @@ var Perceptron = function () {
                 throw new Error("Too few inputs define for the Perceptron.");
             }
 
-            var sum = 0;
+            var sum = this._bias * this._weights[this._nbInputs];
 
-            for (var i = 0; i < this._weights.length; i++) {
+            for (var i = 0; i < this._nbInputs; i++) {
                 sum += inputs[i] * this._weights[i];
             }
 
@@ -52,7 +53,7 @@ var Perceptron = function () {
             return this._weights;
         },
         set: function set(weights) {
-            if (weights.length !== this._nbInputs) {
+            if (weights.length !== this._nbInputs + 1) {
                 throw new Error("Too few weights define for the Perceptron.");
             }
 
