@@ -4,7 +4,7 @@ let Activation = require("./Activation");
 
 class Perceptron {
 
-    constructor(nbInputs, activation = Activation.signum) {
+    constructor(nbInputs, activation = Activation.heaviside) {
         this._nbInputs = nbInputs;
         this._activation = activation;
         this._bias = 1;

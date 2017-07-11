@@ -8,7 +8,7 @@ var Activation = require("./Activation");
 
 var Perceptron = function () {
     function Perceptron(nbInputs) {
-        var activation = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Activation.signum;
+        var activation = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Activation.heaviside;
 
         _classCallCheck(this, Perceptron);
 
