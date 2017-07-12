@@ -44,11 +44,12 @@ class Perceptron {
     }
 
     set weights(weights) {
-        if (weights.length !== this._nbInputs + 1) {
+        if (false === Array.isArray(weights) || weights.length !== this._nbInputs + 1) {
             throw new Error("Too few weights define for the Perceptron.");
         }
 
-        this._weights = weights;
+        // Clone array
+        this._weights = weights.slice();
     }
 
     get inputs() {

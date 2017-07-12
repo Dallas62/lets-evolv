@@ -48,16 +48,19 @@ class Layer {
         let weights = [];
 
         for (let i = 0; i < this._nbOutputs; i++) {
-            weights[i] = this._perceptrons[i].weights;
+            weights = weights.concat(this._perceptrons[i].weights);
         }
 
         return weights;
     }
 
     set weights(weights) {
-        if (weights.length !== (this._nbInputs + 1) * this._nbOutputs) {
+        if (false === Array.isArray(weights) || weights.length !== (this._nbInputs + 1) * this._nbOutputs) {
             throw new Error("Too few weights define for the Layer.");
         }
+
+        // Clone array
+        weights = weights.slice();
 
         for (let i = 0; i < this._nbOutputs; i++) {
             this._perceptrons[i].weights = weights.splice(0, this._nbInputs + 1);

@@ -10,7 +10,14 @@ module.exports = testCase({
         // Instantiation
         var perceptron = new Perceptron(2);
 
+        var weights = [0.2, 0.3, 0.4];
+
+        perceptron.weights = weights;
+
         test.equal(perceptron.inputs, 2);
+
+        test.equal(perceptron.weights.length, 3);
+        test.deepEqual(perceptron.weights, weights);
         test.done();
     },
     'Perceptron - Instantiation wrong parameter inputs': function PerceptronInstantiationWrongParameterInputs(test) {

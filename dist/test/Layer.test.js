@@ -9,8 +9,15 @@ module.exports = testCase({
         // Instantiation
         var layer = new Layer(2, 1);
 
+        var weights = [0.2, 0.3, 0.4];
+
+        layer.weights = weights;
+
         test.equal(layer.inputs, 2);
         test.equal(layer.outputs, 1);
+
+        test.equal(layer.weights.length, 3);
+        test.deepEqual(layer.weights, weights);
 
         test.equal(layer.feedForward([1, 1]).length, 1);
 
@@ -20,8 +27,15 @@ module.exports = testCase({
         // Instantiation
         var layer = new Layer(10, 5);
 
+        var weights = new Array(55).fill(0.25);
+
+        layer.weights = weights;
+
         test.equal(layer.inputs, 10);
         test.equal(layer.outputs, 5);
+
+        test.equal(layer.weights.length, 55);
+        test.deepEqual(layer.weights, weights);
 
         test.equal(layer.feedForward(new Array(10)).length, 5);
 
