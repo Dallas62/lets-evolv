@@ -9,7 +9,7 @@ class Network {
         this._nbLayers = nbLayers;
         this._activation = activation;
 
-        if (false === Array.isArray() || this._nbLayers.length < 2) {
+        if (false === Array.isArray(this._nbLayers) || this._nbLayers.length < 2) {
             throw new Error('Too few layers define for the Network.');
         }
 
@@ -32,14 +32,14 @@ class Network {
     }
 
     feedForward(inputs) {
-        if (inputs.length !== this._nbInputs) {
+        if (false === Array.isArray(inputs) || inputs.length !== this._nbInputs) {
             throw new Error("Too few inputs define for the Network.");
         }
 
         let outputs = inputs;
 
         for (let i = 0; i < this._nbLayers.length - 1; i++) {
-            outputs = this._layers[i].feedForward(inputs);
+            outputs = this._layers[i].feedForward(outputs);
         }
 
         return outputs;
@@ -49,7 +49,7 @@ class Network {
         let weights = [];
 
         for (let i = 0; i < this._nbLayers.length - 1; i++) {
-            weights = weights.concat(this._layer[i].weights);
+            weights = weights.concat(this._layers[i].weights);
         }
 
         return weights;
@@ -76,7 +76,7 @@ class Network {
             let nbInputs = this._nbLayers[i - 1];
             let nbOutputs = this._nbLayers[i];
 
-            this._layers[i].weights = weights.splice(0, (nbInputs + 1) * nbOutputs);
+            this._layers[i - 1].weights = weights.splice(0, (nbInputs + 1) * nbOutputs);
         }
     }
 
@@ -86,6 +86,10 @@ class Network {
 
     get outputs() {
         return this._nbOutputs;
+    }
+
+    get layers() {
+        return this._nbLayers.length - 1;
     }
 }
 
