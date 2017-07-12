@@ -26,7 +26,7 @@ class Perceptron {
     }
 
     feedForward(inputs) {
-        if (inputs.length !== this._nbInputs) {
+        if (false === Array.isArray(inputs) || inputs.length !== this._nbInputs) {
             throw new Error("Too few inputs define for the Perceptron.");
         }
 

@@ -37,7 +37,7 @@ module.exports = testCase({
         test.equal(layer.weights.length, 55);
         test.deepEqual(layer.weights, weights);
 
-        test.equal(layer.feedForward(new Array(10)).length, 5);
+        test.equal(layer.feedForward(new Array(10).fill(1)).length, 5);
 
         test.done();
     },
